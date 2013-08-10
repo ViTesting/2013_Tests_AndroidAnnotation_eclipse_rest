@@ -17,6 +17,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 import com.andexp.annotationsrest.R.id;
 import com.andexp.annotationsrest.R.layout;
+import com.andexp.annotationsrest.rest.HeaderData;
 import com.andexp.annotationsrest.rest.MyRestClient_;
 import com.andexp.annotationsrest.rest.TimeData;
 import com.googlecode.androidannotations.api.BackgroundExecutor;
@@ -41,7 +42,7 @@ public final class MainActivity_
     private void afterSetContentView_() {
         mTextView = ((TextView) findViewById(id.main_tv_hello));
         {
-            View view = findViewById(id.main_btn_launch);
+            View view = findViewById(id.main_btn_launch_header);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
 
@@ -49,6 +50,21 @@ public final class MainActivity_
                     @Override
                     public void onClick(View view) {
                         MainActivity_.this.launchHeaderSync();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = findViewById(id.main_btn_launch_time);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        MainActivity_.this.launchTimeSync();
                     }
 
                 }
@@ -98,6 +114,24 @@ public final class MainActivity_
     }
 
     @Override
+    public void displayHeaderData(final HeaderData headerData) {
+        handler_.post(new Runnable() {
+
+
+            @Override
+            public void run() {
+                try {
+                    MainActivity_.super.displayHeaderData(headerData);
+                } catch (RuntimeException e) {
+                    Log.e("MainActivity_", "A runtime exception was thrown while executing code in a runnable", e);
+                }
+            }
+
+        }
+        );
+    }
+
+    @Override
     public void loadTimeData() {
         BackgroundExecutor.execute(new Runnable() {
 
@@ -106,6 +140,24 @@ public final class MainActivity_
             public void run() {
                 try {
                     MainActivity_.super.loadTimeData();
+                } catch (RuntimeException e) {
+                    Log.e("MainActivity_", "A runtime exception was thrown while executing code in a runnable", e);
+                }
+            }
+
+        }
+        );
+    }
+
+    @Override
+    public void loadHeader() {
+        BackgroundExecutor.execute(new Runnable() {
+
+
+            @Override
+            public void run() {
+                try {
+                    MainActivity_.super.loadHeader();
                 } catch (RuntimeException e) {
                     Log.e("MainActivity_", "A runtime exception was thrown while executing code in a runnable", e);
                 }

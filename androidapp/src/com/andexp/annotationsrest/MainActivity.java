@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.andexp.annotationsrest.rest.Header;
+import com.andexp.annotationsrest.rest.HeaderData;
 import com.andexp.annotationsrest.rest.TimeData;
 import com.andexp.annotationsrest.rest.MyRestClient;
 import com.googlecode.androidannotations.annotations.Background;
@@ -28,8 +30,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	@Click(R.id.main_btn_launch)
-	void launchHeaderSync() {
+	@Click(R.id.main_btn_launch_time)
+	void launchTimeSync() {
 		loadTimeData();
 	}
 
@@ -42,6 +44,22 @@ public class MainActivity extends Activity {
 	@UiThread
 	void displayTimeData(TimeData timeData) {
 		mTextView.setText(timeData.toString());
+	}
+
+	@Click(R.id.main_btn_launch_header)
+	void launchHeaderSync() {
+		loadHeader();
+	}
+
+	@Background
+	void loadHeader() {
+		Header header = restClient.getHeader();
+		displayHeaderData(header.getHeaderData());
+	}
+
+	@UiThread
+	void displayHeaderData(HeaderData headerData) {
+		this.mTextView.setText(headerData.toString());		
 	}
 
 }

@@ -13,4 +13,8 @@ public interface MyRestClient {
 	@Get("http://time.jsontest.com/")
 	@Accept(MediaType.APPLICATION_JSON)
 	TimeData getTime();
+	
+	@Get("http://httpbin.org/headers")
+	@Accept(MediaType.APPLICATION_JSON)
+	Header getHeader();
 }

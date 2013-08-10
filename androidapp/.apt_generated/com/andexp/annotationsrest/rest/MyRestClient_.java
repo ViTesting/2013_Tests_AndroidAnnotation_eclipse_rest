@@ -27,6 +27,14 @@ public class MyRestClient_
     }
 
     @Override
+    public Header getHeader() {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setAccept(Collections.singletonList(MediaType.parseMediaType("application/json")));
+        HttpEntity<Object> requestEntity = new HttpEntity<Object>(httpHeaders);
+        return restTemplate.exchange(rootUrl.concat("http://httpbin.org/headers"), HttpMethod.GET, requestEntity, Header.class).getBody();
+    }
+
+    @Override
     public TimeData getTime() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Collections.singletonList(MediaType.parseMediaType("application/json")));

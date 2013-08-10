@@ -8,12 +8,26 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button android:id="@+id/main_btn_launch"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Launch"/>
+        android:layout_alignParentBottom="true" 
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/main_btn_launch_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Launch Time" />
+		<Button 
+		    android:id="@+id/main_btn_launch_header"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:text="Launch Header"/>        
+    </LinearLayout>
+
     <TextView
         android:id="@+id/main_tv_hello"
         android:layout_width="wrap_content"
