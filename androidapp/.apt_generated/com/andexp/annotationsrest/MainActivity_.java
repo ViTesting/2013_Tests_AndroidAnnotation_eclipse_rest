@@ -32,7 +32,7 @@ public final class MainActivity_
     public void onCreate(Bundle savedInstanceState) {
         init_(savedInstanceState);
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_main);
+        setContentView(layout.main_activity);
     }
 
     private void init_(Bundle savedInstanceState) {
@@ -96,14 +96,14 @@ public final class MainActivity_
     }
 
     @Override
-    public void displayTimeData(final TimeData timeData) {
+    public void displayHeaderData(final HeaderData headerData) {
         handler_.post(new Runnable() {
 
 
             @Override
             public void run() {
                 try {
-                    MainActivity_.super.displayTimeData(timeData);
+                    MainActivity_.super.displayHeaderData(headerData);
                 } catch (RuntimeException e) {
                     Log.e("MainActivity_", "A runtime exception was thrown while executing code in a runnable", e);
                 }
@@ -114,14 +114,14 @@ public final class MainActivity_
     }
 
     @Override
-    public void displayHeaderData(final HeaderData headerData) {
+    public void displayTimeData(final TimeData timeData) {
         handler_.post(new Runnable() {
 
 
             @Override
             public void run() {
                 try {
-                    MainActivity_.super.displayHeaderData(headerData);
+                    MainActivity_.super.displayTimeData(timeData);
                 } catch (RuntimeException e) {
                     Log.e("MainActivity_", "A runtime exception was thrown while executing code in a runnable", e);
                 }

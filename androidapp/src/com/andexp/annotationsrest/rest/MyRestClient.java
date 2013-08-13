@@ -17,4 +17,9 @@ public interface MyRestClient {
 	@Get("http://httpbin.org/headers")
 	@Accept(MediaType.APPLICATION_JSON)
 	Header getHeader();
+	
+	@Get("http://httpbin.org/get?id={id}&data={data}")
+	@Accept(MediaType.APPLICATION_JSON)
+	Header getGetData(String id, String data);
+	
 }

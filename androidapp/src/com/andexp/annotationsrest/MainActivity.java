@@ -15,7 +15,7 @@ import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
 import com.googlecode.androidannotations.annotations.rest.RestService;
 
-@EActivity(R.layout.activity_main)
+@EActivity(R.layout.main_activity)
 public class MainActivity extends Activity {
 	@RestService
 	MyRestClient restClient;
