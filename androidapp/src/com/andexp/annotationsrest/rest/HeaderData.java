@@ -5,16 +5,20 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HeaderData {
-	@JsonProperty("Referer")
-	private String referer;
-	
 	@JsonProperty("User-Agent")
 	private String userAgent;
-	
+
+	public String getUserAgent() {
+		return userAgent;
+	}
+
+	public void setUserAgent(String userAgent) {
+		this.userAgent = userAgent;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Referer : ").append(this.referer).append("\n");
 		builder.append("User-Agent : ").append(this.userAgent).append("\n");
 		return builder.toString();
 	}

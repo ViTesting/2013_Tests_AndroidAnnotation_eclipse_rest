@@ -15,6 +15,30 @@ public class TimeData {
 	@JsonProperty("date")
 	private String date;
 	
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public long getMillis() {
+		return millis;
+	}
+
+	public void setMillis(long millis) {
+		this.millis = millis;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

@@ -42,21 +42,6 @@ public final class MainActivity_
     private void afterSetContentView_() {
         mTextView = ((TextView) findViewById(id.main_tv_hello));
         {
-            View view = findViewById(id.main_btn_launch_header);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        MainActivity_.this.launchHeaderSync();
-                    }
-
-                }
-                );
-            }
-        }
-        {
             View view = findViewById(id.main_btn_launch_time);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
@@ -65,6 +50,21 @@ public final class MainActivity_
                     @Override
                     public void onClick(View view) {
                         MainActivity_.this.launchTimeSync();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = findViewById(id.main_btn_launch_header);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        MainActivity_.this.launchHeaderSync();
                     }
 
                 }

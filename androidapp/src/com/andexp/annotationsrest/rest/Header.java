@@ -9,13 +9,28 @@ public class Header {
 	HeaderData headerData;
 	
 	@JsonProperty("args")
-	ArgsData argsData;
+	ArgsData args;
 
-	public HeaderData getHeaderData() {
-		return this.headerData;
-	}
+	@JsonProperty("json")
+	ArgsData json;
 	
-	public ArgsData getArgsData(){
-		return this.argsData;
+	public HeaderData getHeaderData() {
+		return headerData;
+	}
+
+	public void setHeaderData(HeaderData headerData) {
+		this.headerData = headerData;
+	}
+
+	public ArgsData getArgs() {
+		return args;
+	}
+
+	public void setArgs(ArgsData args) {
+		this.args = args;
+	}
+
+	public ArgsData getJsonData() {
+		return json;
 	}
 }

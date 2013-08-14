@@ -54,4 +54,12 @@ public class MyRestClient_
         return restTemplate.exchange(rootUrl.concat("http://httpbin.org/headers"), HttpMethod.GET, requestEntity, Header.class).getBody();
     }
 
+    @Override
+    public Header getPostedData(ArgsData argsData) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setAccept(Collections.singletonList(MediaType.parseMediaType("application/json")));
+        HttpEntity<ArgsData> requestEntity = new HttpEntity<ArgsData>(argsData, httpHeaders);
+        return restTemplate.exchange(rootUrl.concat("http://httpbin.org/post"), HttpMethod.POST, requestEntity, Header.class).getBody();
+    }
+
 }
